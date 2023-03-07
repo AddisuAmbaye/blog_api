@@ -1,0 +1,20 @@
+{
+  "name": "blog_api",
+  "version": "1.0.0",
+  "description": "Blog_api using node.js ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Express",
+    "js",
+    "Node",
+    "js"
+  ],
+  "author": "addis",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
