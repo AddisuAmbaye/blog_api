@@ -39,6 +39,17 @@ const postSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required:[true, 'Please Author is required']   
-        }
-    ]
+        },
+    ],
+    photo: {
+        type: String,
+        required: [true, 'Post Image is required'],
+    },
+},
+{
+timestamps: true,
 });
+
+//compile the user model
+const user = mongoose.model('Post',postSchema);
+module.exports = Post;

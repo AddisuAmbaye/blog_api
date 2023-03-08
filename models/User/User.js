@@ -61,4 +61,11 @@ const userSchema = new mongoose.Schema({
             ref:'post'
         },
     ],
+},
+{
+timestamps: true,
 });
+
+//compile the user model
+const user = mongoose.model('User',userSchema);
+module.exports = User;
