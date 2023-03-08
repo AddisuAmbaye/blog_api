@@ -4,17 +4,20 @@
   "description": "Blog_api using node.js ",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "keywords": [
     "Express",
     "js",
     "Node",
-    "js"
+    "js",
+    "mongoose"
   ],
   "author": "addis",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.1"
   }
 }
