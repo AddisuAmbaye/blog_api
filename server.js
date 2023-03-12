@@ -26,7 +26,7 @@ app.use("/api/v1/categories", categoryRouter);
 
 //Error handlers middleware
 app.use(globalErrHandler);
-
+  
 //404 error
 app.use("*", (req, res) => {
   console.log(req.originalUrl);
