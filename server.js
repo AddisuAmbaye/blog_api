@@ -1,6 +1,7 @@
 const express = require("express");
 const globalErrHandler = require("./middlewares/globalErrHandler");
 const Post = require("./model/Post/Post");
+const { post } = require("./routes/categories/categoryRoutes");
 const categoryRouter = require("./routes/categories/categoryRoutes");
 const commentRouter = require("./routes/comments/commentRoutes");
 const postRouter = require("./routes/posts/postRoutes");
@@ -17,17 +18,17 @@ app.use(express.json()); //pass incoming payload
 //routes
 //----
 //Home route
-app.use('/',async(req,res)=>{
-  try {
-    const posts = await Post.find;
-    res.json({
-      status: "success",
-      data:posts,
-    });
-  } catch (error) {
-    res.json(error)
-  }
-});
+// app.use('/',async(req,res) => {
+//   try {
+//     const posts = await Post.find();
+//     res.json({
+//       status: "success",
+//       data: posts,
+//     });
+//   } catch (error) {
+//     res.json(error);
+//   }
+// });
 //users route
 app.use("/api/v1/users/", userRouter);
 //posts route

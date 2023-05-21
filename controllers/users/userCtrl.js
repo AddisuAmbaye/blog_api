@@ -51,7 +51,7 @@ const userLoginCtrl = async (req, res, next) => {
       password,
       userFound.password
     );
-
+ 
     if (!isPasswordMatched) {
       if (!userFound) {
         return next(appErr("Invalid login credentials"));
