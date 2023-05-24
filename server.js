@@ -38,7 +38,7 @@ app.use("/api/v1/comments", commentRouter);
 //categories route
 app.use("/api/v1/categories", categoryRouter);
 //university route
-app.use("/api/v1/universities/", universityRouter);
+app.use("/api/v1/universities", universityRouter);
 //Error handlers middleware
 app.use(globalErrHandler);
   

@@ -1,9 +1,9 @@
-
+const require = require("../../model/University/University");
 
 // create new university
 const universityCreatCtrl = async (req, res) => {
     try {
-      const university = new UniversityModel(req.body);
+      const university = new University(req.body);
       await university.save
       // and return the newly created university
       res.status(201).json(university);
@@ -13,12 +13,12 @@ const universityCreatCtrl = async (req, res) => {
     }
   };
 
-  //create new university by id
+  //read university by id
 const universityCtrl = async (req, res) => {
     const { id } = req.params;
   
     try {
-      const university = await UniversityModel.findById(id);
+      const university = await University.findById(id);
       if (university) {
         res.json(university);
       } else {
@@ -33,7 +33,7 @@ const universityCtrl = async (req, res) => {
   // read all universities
   const universitiesCtrl = async (req, res) => {
     try {
-      const universities = await UniversityModel.find();
+      const universities = await University.find();
       res.json(universities);
     } catch (err) {
       console.error('Error retrieving universities:', err);
@@ -46,7 +46,7 @@ const universityUpdateCtrl = async (req, res) => {
     const { id } = req.params;
   
     try {
-      const university = await UniversityModel.findByIdAndUpdate(
+      const university = await University.findByIdAndUpdate(
         id,
         req.body,
         {

@@ -45,6 +45,6 @@ const UniversitySchema = new mongoose.Schema({
   writingRequirements: { type: WritingRequirementsSchema, required: true },
 });
 
-const UniversityModel = mongoose.model('University', UniversitySchema);
+const University = mongoose.model('University', UniversitySchema);
 
 module.exports = University;
