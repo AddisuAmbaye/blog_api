@@ -6,7 +6,7 @@ const categoryRouter = require("./routes/categories/categoryRoutes");
 const commentRouter = require("./routes/comments/commentRoutes");
 const postRouter = require("./routes/posts/postRoutes");
 const userRouter = require("./routes/users/userRoutes");
-
+const universityRouter = require("./routes/universityRoutes")
 require("dotenv").config();
 require("./config/dbConnect");
 
@@ -37,7 +37,8 @@ app.use("/api/v1/posts", postRouter);
 app.use("/api/v1/comments", commentRouter);
 //categories route
 app.use("/api/v1/categories", categoryRouter);
-
+//university route
+app.use("/api/v1/universities/", universityRouter);
 //Error handlers middleware
 app.use(globalErrHandler);
   
