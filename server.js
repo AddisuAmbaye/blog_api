@@ -6,7 +6,7 @@ const categoryRouter = require("./routes/categories/categoryRoutes");
 const commentRouter = require("./routes/comments/commentRoutes");
 const postRouter = require("./routes/posts/postRoutes");
 const userRouter = require("./routes/users/userRoutes");
-const universityRouter = require("./routes/universityRoutes")
+const universityRouter = require("./routes/universities/universitiesRoutes");
 require("dotenv").config();
 require("./config/dbConnect");
 
@@ -32,7 +32,7 @@ app.use(express.json()); //pass incoming payload
 //users route
 app.use("/api/v1/users/", userRouter);
 //posts route
-app.use("/api/v1/posts", postRouter);
+app.use("/api/v1/posts", postRouter)
 //comments route
 app.use("/api/v1/comments", commentRouter);
 //categories route
