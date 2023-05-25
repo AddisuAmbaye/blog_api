@@ -1,4 +1,4 @@
-const require = require("../../model/University/University");
+const University = require("../../model/University/University");
 
 // create new university
 const universityCreatCtrl = async (req, res) => {
