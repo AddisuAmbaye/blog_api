@@ -1,6 +1,6 @@
 const express = require('express');
 const {
-  universityCreatCtrl,
+  universityCreateCtrl,
   universityDeleteCtrl,
   universityUpdateCtrl,
   universitiesCtrl,
@@ -10,7 +10,7 @@ const universityRouter = express.Router();
 
 // Create a new university
 //post/api/v1/universities
-universityRouter.post('/', universityCreatCtrl);
+universityRouter.post('/', universityCreateCtrl);
 
 // Read a single university by its ID
 //GET/api/v1/universities/:id
