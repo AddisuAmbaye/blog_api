@@ -1,28 +1,28 @@
 const University = require('../../model/University/University');
-const CollageApplicationStatus = require('../../model/Dashboard/Dashboard');
+const CollegeApplicationStatus = require('../../model/Dashboard/Dashboard');
 
 const applicationStatusCtrl = async (req, res) => {
   try {
-    const collageData = req.body;
+    const collegeData = req.body;
 
     // Check if college already exists in the database
-    const existingCollege = await University.findOne({ name: collageData.name });
+    const existingCollege = await University.findOne({ name: collegeData.name });
     let college;
     let collegeApplicationStatus;
     if (existingCollege) {
       // Retrieve existing application status for the college
       college = existingCollege;
-      collegeApplicationStatus = await CollageApplicationStatus.findOne({ collage: college._id });
+      collegeApplicationStatus = await CollegeApplicationStatus.findOne({ collage: college._id });
     } else {
       // Retrieve the required fields from an existing university document
       const requiredFields = await University.findOne().select('-_id name writingRequirements additionalInfo evaluations testPolicy links address email phone');
       // Create a new college document with the required fields and the request body data
-      college = new University({...requiredFields._doc, ...collageData});
+      college = new University({...requiredFields._doc, ...collegeData});
       await college.save();
 
       // Create a new college application status document with default values
-      collegeApplicationStatus = new CollageApplicationStatus({
-        collage: college._id,
+      collegeApplicationStatus = new CollegeApplicationStatus({
+        college: college._id,
         jointApplicatonStatus: 'In progress',
         questionsStatus: 'In progress',
         recommendersAndFERPAStatus: 'In progress',
@@ -43,7 +43,7 @@ const applicationStatusCtrl = async (req, res) => {
 // View all college application statuses
 const viewApplicationStatusCtrl = async (req, res) => {
   try {
-    const collegeApplicationStatus = await CollageApplicationStatus.find().populate('collage');
+    const collegeApplicationStatus = await CollegeApplicationStatus.find().populate('collage');
     res.render('dashboard.js', { collegeApplicationStatus });
   } catch (err) {
     console.log(err);

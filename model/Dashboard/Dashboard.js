@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 // const University = require('../../model/University/University');
 
-const collageApplicationStatusSchema = new mongoose.Schema({
-  collage: { type: mongoose.Schema.Types.ObjectId, ref: 'University', required: true },
+const collegeApplicationStatusSchema = new mongoose.Schema({
+  college: { type: mongoose.Schema.Types.ObjectId, ref: 'University', required: true },
   jointApplicatonStatus: { type: String, required: true },
   questionsStatus: { type: String, required: true },
   recommendersAndFERPAStatus: { type: String, required: true },
@@ -11,6 +11,6 @@ const collageApplicationStatusSchema = new mongoose.Schema({
   writingSupplementRequired: { type: Boolean, required: true },
 });
 
-const CollageApplicationStatus = mongoose.model('CollageApplicationStatus', collageApplicationStatusSchema);
+const CollegeApplicationStatus = mongoose.model('CollegeApplicationStatus', collegeApplicationStatusSchema);
 
-module.exports = CollageApplicationStatus;
+module.exports = CollegeApplicationStatus;
