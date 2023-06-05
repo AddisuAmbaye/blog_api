@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 // const University = require('../../model/University/University');
 
 const collegeApplicationStatusSchema = new mongoose.Schema({
-  college: { type: mongoose.Schema.Types.ObjectId, ref: 'University', required: true },
+  college: { type: String, ref: 'University.name', required: true },
   jointApplicatonStatus: { type: String, required: true },
   questionsStatus: { type: String, required: true },
   recommendersAndFERPAStatus: { type: String, required: true },

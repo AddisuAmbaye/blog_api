@@ -4,7 +4,7 @@ const University = require("../../model/University/University");
 const universityCreateCtrl = async (req, res) => {
     try {
       const university = new University(req.body);
-      await university.save
+      await university.save()
       // and return the newly created university
       res.status(201).json(university);
     } catch (err) {

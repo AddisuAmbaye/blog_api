@@ -3,26 +3,14 @@ const CollegeApplicationStatus = require('../../model/Dashboard/Dashboard');
 
 const applicationStatusCtrl = async (req, res) => {
   try {
-    const collegeData = req.body;
-
-    // Check if college already exists in the database
-    const existingCollege = await University.findOne({ name: collegeData.name });
-    let college;
-    let collegeApplicationStatus;
-    if (existingCollege) {
-      // Retrieve existing application status for the college
-      college = existingCollege;
-      collegeApplicationStatus = await CollegeApplicationStatus.findOne({ collage: college._id });
-    } else {
+      const collegeData = req.body;
       // Retrieve the required fields from an existing university document
       const requiredFields = await University.findOne().select('-_id name writingRequirements additionalInfo evaluations testPolicy links address email phone');
       // Create a new college document with the required fields and the request body data
-      college = new University({...requiredFields._doc, ...collegeData});
-      await college.save();
-
+      college = new University({...requiredFields._doc, ...collegeData}); 
       // Create a new college application status document with default values
       collegeApplicationStatus = new CollegeApplicationStatus({
-        college: college._id,
+        college: college.name,
         jointApplicatonStatus: 'In progress',
         questionsStatus: 'In progress',
         recommendersAndFERPAStatus: 'In progress',
@@ -31,7 +19,7 @@ const applicationStatusCtrl = async (req, res) => {
         writingSupplementRequired: false,
       });
       await collegeApplicationStatus.save();
-    }
+    
 
     res.json({ college, collegeApplicationStatus });
   } catch (err) {
@@ -43,8 +31,8 @@ const applicationStatusCtrl = async (req, res) => {
 // View all college application statuses
 const viewApplicationStatusCtrl = async (req, res) => {
   try {
-    const collegeApplicationStatus = await CollegeApplicationStatus.find().populate('collage');
-    res.render('dashboard.js', { collegeApplicationStatus });
+    const collegeApplicationStatus = await CollegeApplicationStatus.find().populate('college');
+    res.json({ collegeApplicationStatus });
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: 'Server error' });
