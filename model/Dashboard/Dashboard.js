@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-// const University = require('../../model/University/University');
+const University = require('../../model/University/University');
 
 const collegeApplicationStatusSchema = new mongoose.Schema({
   college: { type: String, ref: 'University.name', required: true },

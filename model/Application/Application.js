@@ -1,5 +1,6 @@
+const mongoose = require('mongoose');
 // Define the schema for the college application form
-const collegeApplicationSchema = new mongoose.Schema({
+const ApplicationSchema = new mongoose.Schema({
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
     email: { type: String, required: true },
@@ -23,10 +24,8 @@ const collegeApplicationSchema = new mongoose.Schema({
         contentType: String
       }
     },
-    testScores: {
-      sat: { type: Number },
-      act: { type: Number },
-      toefl: { type: Number }
+    testScore: {
+        EHEECE: { type: Number },
     },
     essays: {
       essay1: { type: String },
@@ -45,6 +44,6 @@ const collegeApplicationSchema = new mongoose.Schema({
   });
   
   // Define the model for the college application form
-  const CollegeApplication = mongoose.model('CollegeApplication', collegeApplicationSchema);
+  const Application = mongoose.model('Application', ApplicationSchema);
   
-  module.exports = CollegeApplication;
+  module.exports = Application;
