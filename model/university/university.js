@@ -37,6 +37,7 @@ const UniversitySchema = new mongoose.Schema({
   email: {"type": String, required: true },
   address: { type: String, required: true },
   links: { type: String, required: true },
+  // image: {type: String, required: true },
   deadlines: [{ type: DeadlineSchema, required: true }],
   applicationFees: [{ type: ApplicationFeeSchema, required: true }],
   testPolicy: { type: TestPolicySchema, required: true },

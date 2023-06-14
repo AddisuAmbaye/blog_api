@@ -1,7 +1,7 @@
 const University = require("../../model/University/University");
 
 // create new university
-const universityCreatCtrl = async (req, res) => {
+const universityCreateCtrl = async (req, res) => {
     try {
       const university = new University(req.body);
       await university.save
@@ -83,7 +83,7 @@ const universityDeleteCtrl = async (req, res) => {
   };
 
   module.exports = {
-    universityCreatCtrl,
+    universityCreateCtrl,
     universityDeleteCtrl,
     universityUpdateCtrl,
     universitiesCtrl,

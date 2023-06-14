@@ -7,6 +7,7 @@ const commentRouter = require("./routes/comments/commentRoutes");
 const postRouter = require("./routes/posts/postRoutes");
 const userRouter = require("./routes/users/userRoutes");
 const universityRouter = require("./routes/universities/universitiesRoutes");
+const dashboardRouter = require("./routes/dashboard/dashboardRoutes")
 require("dotenv").config();
 require("./config/dbConnect");
 
@@ -39,6 +40,8 @@ app.use("/api/v1/comments", commentRouter);
 app.use("/api/v1/categories", categoryRouter);
 //university route
 app.use("/api/v1/universities", universityRouter);
+//dashboard route
+app.use("/api/v1/dashboard",dashboardRouter);
 //Error handlers middleware
 app.use(globalErrHandler);
   
