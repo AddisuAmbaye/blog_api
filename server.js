@@ -8,6 +8,10 @@ const postRouter = require("./routes/posts/postRoutes");
 const userRouter = require("./routes/users/userRoutes");
 const universityRouter = require("./routes/universities/universitiesRoutes");
 const dashboardRouter = require("./routes/dashboard/dashboardRoutes")
+<<<<<<< HEAD
+=======
+const applicationRouter = require("./routes/applications/applicationRoutes")
+>>>>>>> 0e60ef6cdd7336b2300ddc3236dd8085322c0a89
 require("dotenv").config();
 require("./config/dbConnect");
 
@@ -42,6 +46,11 @@ app.use("/api/v1/categories", categoryRouter);
 app.use("/api/v1/universities", universityRouter);
 //dashboard route
 app.use("/api/v1/dashboard",dashboardRouter);
+<<<<<<< HEAD
+=======
+//applications route
+app.use("/api/v1/applications", applicationRouter);
+>>>>>>> 0e60ef6cdd7336b2300ddc3236dd8085322c0a89
 //Error handlers middleware
 app.use(globalErrHandler);
   
