@@ -23,7 +23,12 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: [true, "Password is required"],
     },
-
+    myColleges:[
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "MyColleges"
+      }
+    ],
     isBlocked: {
       type: Boolean,
       default: false,
@@ -73,11 +78,11 @@ const userSchema = new mongoose.Schema(
         ref: "User",
       },
     ],
-    // plan: {
-    //   type: String,
-    //   enum: ["Free", "Premium", "Pro"],
-    //   default: "Free",
-    // },
+    plan: {
+      type: String,
+      enum: ["Free", "Premium", "Pro"],
+      default: "Free",
+    },
 
     userAward: {
       type: String,

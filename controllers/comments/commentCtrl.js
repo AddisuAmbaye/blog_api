@@ -2,7 +2,7 @@ const Comment = require("../../model/Comment/Comment");
 const Post = require("../../model/Post/Post");
 const User = require("../../model/User/User");
 const { appErr } = require("../../utils/appErr");
- 
+
 //create
 const createCommentCtrl = async (req, res, next) => {
   const { description } = req.body;
@@ -34,7 +34,7 @@ const createCommentCtrl = async (req, res, next) => {
     next(appErr(error.message));
   }
 };
-       
+
 //delete
 const deleteCommentCtrl = async (req, res, next) => {
   try {
