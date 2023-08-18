@@ -8,10 +8,13 @@ const postRouter = require("./routes/posts/postRoutes");
 const userRouter = require("./routes/users/userRoutes");
 const universityRouter = require("./routes/universities/universitiesRoutes");
 const dashboardRouter = require("./routes/dashboard/dashboardRoutes")
-const applicationRouter = require("./routes/applications/applicationRoutes")
+const myCollegesRouter = require("./routes/myColleges/myCollegesRoutes");
+const applicationRouter = require("./routes/applications/applicationRoutes");
+
 require("dotenv").config();
 require("./config/dbConnect");
 
+const cors = require("cors");
 const app = express();
 
 //middlewares
@@ -29,8 +32,10 @@ app.use("/api/v1/categories", categoryRouter);
 app.use("/api/v1/universities", universityRouter);
 //dashboard route
 app.use("/api/v1/dashboard",dashboardRouter);
-//applications route
+//application route
 app.use("/api/v1/applications", applicationRouter);
+// mycolleges route
+app.use("/api/v1/myColleges",myCollegesRouter);
 //Error handlers middleware
 app.use(globalErrHandler);
   
