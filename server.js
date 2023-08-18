@@ -17,20 +17,6 @@ const app = express();
 //middlewares
 app.use(express.json()); //pass incoming payload
 
-//routes
-//----
-//Home route
-// app.use('/',async(req,res) => {
-//   try {
-//     const posts = await Post.find();
-//     res.json({
-//       status: "success",
-//       data: posts,
-//     });
-//   } catch (error) {
-//     res.json(error);
-//   }
-// });
 //users route
 app.use("/api/v1/users/", userRouter);
 //posts route
